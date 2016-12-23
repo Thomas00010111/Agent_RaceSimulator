@@ -1,0 +1,30 @@
+#Number of obstacles in environment
+NUMBEROFOBSTACLES=0
+OBSTACLES_XYZ0=30, 50, 170, 150,-1
+OBSTACLES_XYZ1=5,6,6,7,-1
+
+#Number of ares with reward in environment
+#The Name _XYZ is misleading first two coordinates are x0,y0 then x1,y1 coordinates of the corners and reward
+NUMBEROFREWARDAREAS=1
+REWARDAREAS_XYZ0 = 175, 115, 185, 170, 2
+
+NUMBEROFOPPONENTS=0
+OPPONENTS_XYZ0=30,30, 45, 45, -1
+OPPONENTS_XYZ1=50,50, 60, 60, -1
+
+#Number of ares with action in environment
+NUMBEROFACTIONSQUARES=0
+ACTIONSQUARE_XYZ = 20, 30, 70, 70, 0
+
+#Number of points where agents get maximum of linear reward function
+NUMBEROFMAXLINEARREWARDAREAS=0
+
+NUMBEROFSPEEDSQUARES=0
+
+#type of car EISTUETE or default
+CARTYPE=POINT
+#CARTYPE=EISTUETE
+
+#type of track
+TRACKTYPE=OPEN_TRACK
+#TRACKTYPE=ROUND_TRACK

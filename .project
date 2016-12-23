@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>Agent_MyRaceSimulator</name>
+	<comment></comment>
+	<projects>
+		<project>champ2011client-python</project>
+		<project>kdtree</project>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.python.pydev.PyDevBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.python.pydev.pythonNature</nature>
+	</natures>
+	<variableList>
+		<variable>
+			<name>CLASSPATH</name>
+			<value>file:/home/mrfish/MrFish/RoboticsLab/Link_Dropbox_Workspace_UW/Workspace/EnvironmentServer/branches/bin</value>
+		</variable>
+	</variableList>
+</projectDescription>

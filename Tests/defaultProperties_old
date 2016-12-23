@@ -1,0 +1,21 @@
+#Number of obstacles in environment
+NUMBEROFOBSTACLES=0
+OBSTACLES_XYZ0=30, 50, 170, 150,-1
+OBSTACLES_XYZ1=5,6,6,7,-1
+
+#Number of ares with reward in environment
+NUMBEROFREWARDAREAS=0
+REWARDAREAS_XYZ =50, 130, 100, 150, 0.1
+
+#Number of ares with action in environment
+NUMBEROFACTIONSQUARES=0
+ACTIONSQUARE_XYZ = 20, 30, 70, 70, 0
+
+#Number of points where agents get maximum of linear reward function
+NUMBEROFMAXLINEARREWARDAREAS=0
+
+NUMBEROFSPEEDSQUARES=0
+
+#type of car EISTUETE or default
+#CARTYPE=POINT
+CARTYPE=EISTUETE

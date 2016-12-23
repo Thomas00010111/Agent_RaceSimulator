@@ -1,0 +1,795 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x0816b4c7, pid=9928, tid=3075196672
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_91-b14) (build 1.8.0_91-b14)
+# Java VM: Java HotSpot(TM) Server VM (25.91-b14 mixed mode linux-x86 )
+# Problematic frame:
+# C  [python+0x1234c7]  _PyObject_GC_New+0x1a7
+#
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x096abc00):  JavaThread "main" [_thread_in_native, id=9928, stack(0xbff58000,0xbffa8000)]
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 1 (SEGV_MAPERR), si_addr: 0x00000014
+
+Registers:
+EAX=0x00000000, EBX=0x000005d9, ECX=0x000028ef, EDX=0x26f661a4
+ESP=0xbffa2ec0, EBP=0x00000020, ESI=0x08339360, EDI=0x00000010
+EIP=0x0816b4c7, EFLAGS=0x00210a13, CR2=0x00000014
+
+Top of Stack: (sp=0xbffa2ec0)
+0xbffa2ec0:   00000003 00000000 628666c4 628666df
+0xbffa2ed0:   61d1d844 09613050 48728f0c b74b7c00
+0xbffa2ee0:   b747d020 61d19d14 48728f34 08165904
+0xbffa2ef0:   08339360 00000000 ffffffff 62856968
+0xbffa2f00:   61d1d854 4cc6a62c 08335080 b74b7c00
+0xbffa2f10:   00000000 61d19d14 48728f34 080cbed5
+0xbffa2f20:   0d623ebc b76538b5 61d2c34c bffa2f54
+0xbffa2f30:   00000007 313a4388 0000001f efc44caf 
+
+Instructions: (pc=0x0816b4c7)
+0x0816b4a7:   7d 00 89 78 04 89 ef e9 28 ff ff ff 89 d1 8b 42
+0x0816b4b7:   04 2b 0d 50 72 35 08 c1 f9 02 69 d9 b7 6d db b6
+0x0816b4c7:   c7 40 14 ff ff 00 00 89 58 10 81 42 04 00 10 00
+0x0816b4d7:   00 e9 6e ff ff ff 89 cf 83 3d 58 b6 30 08 00 0f 
+
+Register to memory mapping:
+
+EAX=0x00000000 is an unknown value
+EBX=0x000005d9 is an unknown value
+ECX=0x000028ef is an unknown value
+EDX=0x26f661a4 is an unknown value
+ESP=0xbffa2ec0 is pointing into the stack for thread: 0x096abc00
+EBP=0x00000020 is an unknown value
+ESI=0x08339360: PyDict_Type+0 in /usr/bin/python at 0x08048000
+EDI=0x00000010 is an unknown value
+
+
+Stack: [0xbff58000,0xbffa8000],  sp=0xbffa2ec0,  free space=299k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [python+0x1234c7]  _PyObject_GC_New+0x1a7
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x647a6000 JavaThread "TimerQueue" daemon [_thread_blocked, id=9955, stack(0x6054e000,0x6059f000)]
+  0x09f4e800 JavaThread "AWT-EventQueue-0" [_thread_blocked, id=9954, stack(0x60836000,0x60887000)]
+  0x09f4c000 JavaThread "AWT-Shutdown" [_thread_blocked, id=9953, stack(0x60887000,0x608d8000)]
+  0x09e8d400 JavaThread "AWT-XAWT" daemon [_thread_in_native, id=9952, stack(0x60c29000,0x60c7a000)]
+  0x09e78c00 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=9951, stack(0x60cb7000,0x60d08000)]
+  0x09850800 JavaThread "Service Thread" daemon [_thread_blocked, id=9947, stack(0x643db000,0x6442c000)]
+  0x0984d400 JavaThread "C1 CompilerThread2" daemon [_thread_blocked, id=9946, stack(0x6442c000,0x644ad000)]
+  0x0984bc00 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=9945, stack(0x644ad000,0x6452e000)]
+  0x0984a000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=9944, stack(0x6452e000,0x645af000)]
+  0x09848400 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=9943, stack(0x645af000,0x64600000)]
+  0x0982e800 JavaThread "Finalizer" daemon [_thread_blocked, id=9942, stack(0x64948000,0x64999000)]
+  0x0982b800 JavaThread "Reference Handler" daemon [_thread_blocked, id=9941, stack(0x64999000,0x649ea000)]
+=>0x096abc00 JavaThread "main" [_thread_in_native, id=9928, stack(0xbff58000,0xbffa8000)]
+
+Other Threads:
+  0x09827000 VMThread [stack: 0x649ea000,0x64a6b000] [id=9940]
+  0x09853800 WatcherThread [stack: 0x6435a000,0x643db000] [id=9948]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ PSYoungGen      total 19200K, used 7635K [0x91e00000, 0x93340000, 0xa6e00000)
+  eden space 16640K, 45% used [0x91e00000,0x92574ce0,0x92e40000)
+  from space 2560K, 0% used [0x930c0000,0x930c0000,0x93340000)
+  to   space 2560K, 0% used [0x92e40000,0x92e40000,0x930c0000)
+ ParOldGen       total 43776K, used 0K [0x67e00000, 0x6a8c0000, 0x91e00000)
+  object space 43776K, 0% used [0x67e00000,0x67e00000,0x6a8c0000)
+ Metaspace       used 7653K, capacity 7810K, committed 7960K, reserved 8496K
+
+Card table byte_map: [0x67c07000,0x67e00000] byte_map_base: 0x678c8000
+
+Marking Bits: (ParMarkBitMap*) 0xb6d42bc0
+ Begin Bits: [0x65480000, 0x66440000)
+ End Bits:   [0x66440000, 0x67400000)
+
+Polling page: 0xb7708000
+
+CodeCache: size=245760Kb used=1975Kb max_used=1975Kb free=243784Kb
+ bounds [0xa7277000, 0xa74b7000, 0xb6277000]
+ total_blobs=1105 nmethods=822 adapters=198
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 72.814 Thread 0x0984d400  819       3       java.awt.Component$1::isDisplayable (13 bytes)
+Event: 72.814 Thread 0x0984d400 nmethod 819 0xa7463bc8 code [0xa7463ce0, 0xa7463e00]
+Event: 72.829 Thread 0x0984d400  820       3       java.util.concurrent.locks.AbstractQueuedSynchronizer::unparkSuccessor (84 bytes)
+Event: 72.830 Thread 0x0984d400 nmethod 820 0xa7463e88 code [0xa7463fe0, 0xa74643ac]
+Event: 72.830 Thread 0x0984d400  821       3       java.util.concurrent.locks.LockSupport::unpark (12 bytes)
+Event: 72.830 Thread 0x0984d400 nmethod 821 0xa7464588 code [0xa74646a0, 0xa746480c]
+Event: 72.837 Thread 0x0984d400  822       3       java.awt.Toolkit::getEventQueue (7 bytes)
+Event: 72.838 Thread 0x0984d400 nmethod 822 0xa7464888 code [0xa7464a20, 0xa7464e84]
+Event: 72.838 Thread 0x0984d400  823       3       sun.awt.SunToolkit::getSystemEventQueueImpl (4 bytes)
+Event: 72.838 Thread 0x0984d400 nmethod 823 0xa74650c8 code [0xa7465200, 0xa74654d8]
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (2 events):
+Event: 0.872 Thread 0x096abc00 Uncommon trap: reason=null_check action=make_not_entrant pc=0xa735e000 method=java.lang.String.equals(Ljava/lang/Object;)Z @ 8
+Event: 1.185 Thread 0x096abc00 Uncommon trap: reason=unstable_if action=reinterpret pc=0xa73c4d10 method=java.lang.String.<init>([CII)V @ 18
+
+Internal exceptions (10 events):
+Event: 0.562 Thread 0x096abc00 Exception <a 'java/security/PrivilegedActionException'> (0x91eceff0) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u91/6644/hotspot/src/share/vm/prims/jvm.cpp, line 1386]
+Event: 0.562 Thread 0x096abc00 Exception <a 'java/security/PrivilegedActionException'> (0x91ecf1f0) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u91/6644/hotspot/src/share/vm/prims/jvm.cpp, line 1386]
+Event: 0.563 Thread 0x096abc00 Exception <a 'java/security/PrivilegedActionException'> (0x91ed13f8) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u91/6644/hotspot/src/share/vm/prims/jvm.cpp, line 1386]
+Event: 0.563 Thread 0x096abc00 Exception <a 'java/security/PrivilegedActionException'> (0x91ed15f8) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u91/6644/hotspot/src/share/vm/prims/jvm.cpp, line 1386]
+Event: 0.646 Thread 0x096abc00 Exception <a 'java/lang/NoSuchFieldError': method resolution failed> (0x91f8a840) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u91/6644/hotspot/src/share/vm/prims/methodHandles.cpp, line 1146]
+Event: 0.650 Thread 0x096abc00 Exception <a 'java/lang/NoSuchFieldError': method resolution failed> (0x91f96dc0) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u91/6644/hotspot/src/share/vm/prims/methodHandles.cpp, line 1146]
+Event: 0.692 Thread 0x096abc00 Exception <a 'java/io/FileNotFoundException'> (0x9200ea08) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u91/6644/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 0.692 Thread 0x096abc00 Exception <a 'java/io/FileNotFoundException'> (0x9200f2f8) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u91/6644/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 0.872 Thread 0x096abc00 Implicit null exception at 0xa735de4b to 0xa735dff1
+Event: 1.522 Thread 0x09f4e800 Exception <a 'java/lang/UnsupportedOperationException': > (0x924c1c98) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u91/6644/hotspot/src/share/vm/prims/jni.cpp, line 735]
+
+Events (10 events):
+Event: 58.345 loading class java/awt/Toolkit$ToolkitEventMulticaster
+Event: 58.345 loading class java/awt/Toolkit$ToolkitEventMulticaster done
+Event: 58.345 loading class java/awt/event/MouseWheelEvent
+Event: 58.345 loading class java/awt/event/MouseWheelEvent done
+Event: 58.374 loading class java/awt/LightweightDispatcher$2
+Event: 58.374 loading class java/awt/LightweightDispatcher$2 done
+Event: 60.833 loading class sun/awt/X11/XWindowPeer$1
+Event: 60.833 loading class sun/awt/X11/XWindowPeer$1 done
+Event: 72.669 loading class sun/awt/X11/XButtonEvent
+Event: 72.670 loading class sun/awt/X11/XButtonEvent done
+
+
+Dynamic libraries:
+08048000-082ec000 r-xp 00000000 08:05 925549     /usr/bin/python2.7
+082ec000-082ed000 r--p 002a3000 08:05 925549     /usr/bin/python2.7
+082ed000-0834c000 rw-p 002a4000 08:05 925549     /usr/bin/python2.7
+0834c000-08358000 rw-p 00000000 00:00 0 
+09613000-313b2000 rw-p 00000000 00:00 0          [heap]
+486ed000-5b86f000 rw-p 00000000 00:00 0 
+5b86f000-5c0d8000 rw-p 00000000 00:00 0 
+5c110000-5c892000 rw-p 00000000 00:00 0 
+5c8b0000-5e370000 rw-p 00000000 00:00 0 
+5e394000-5f654000 rw-p 00000000 00:00 0 
+5f662000-5f9a2000 rw-p 00000000 00:00 0 
+5f9cf000-5fecf000 rw-p 00000000 00:00 0 
+5fef7000-60137000 rw-p 00000000 00:00 0 
+60137000-601b7000 rw-p 00000000 00:00 0 
+601e9000-60269000 rw-p 00000000 00:00 0 
+6028e000-6054e000 rw-p 00000000 00:00 0 
+6054e000-60551000 ---p 00000000 00:00 0 
+60551000-6059f000 rwxp 00000000 00:00 0 
+6059f000-6061f000 rw-p 00000000 00:00 0 
+6061f000-6069f000 ---p 00000000 00:00 0 
+606a7000-606e7000 rw-p 00000000 00:00 0 
+606e7000-60736000 rw-s 00000000 00:05 13467685   /SYSV00000000 (deleted)
+60736000-60836000 rw-p 00000000 00:00 0 
+60836000-60839000 ---p 00000000 00:00 0 
+60839000-60887000 rwxp 00000000 00:00 0 
+60887000-6088a000 ---p 00000000 00:00 0 
+6088a000-608d8000 rwxp 00000000 00:00 0 
+608d8000-60939000 r-xp 00000000 08:05 2929490    /usr/lib/jvm/java-8-oracle/jre/lib/i386/libt2k.so
+60939000-6093d000 rw-p 00060000 08:05 2929490    /usr/lib/jvm/java-8-oracle/jre/lib/i386/libt2k.so
+6093d000-60941000 rw-p 00000000 00:00 0 
+60941000-60950000 r-xp 00000000 08:05 2929515    /usr/lib/jvm/java-8-oracle/jre/lib/i386/libnio.so
+60950000-60951000 rw-p 0000e000 08:05 2929515    /usr/lib/jvm/java-8-oracle/jre/lib/i386/libnio.so
+60951000-60966000 r-xp 00000000 08:05 2929491    /usr/lib/jvm/java-8-oracle/jre/lib/i386/libnet.so
+60966000-60967000 rw-p 00015000 08:05 2929491    /usr/lib/jvm/java-8-oracle/jre/lib/i386/libnet.so
+60967000-60971000 r--s 00000000 08:05 138588     /var/cache/fontconfig/6aa41aa22e18b8fa06a12da28ea9c28b-le32d4.cache-4
+60971000-60972000 r--s 00000000 08:05 147478     /var/cache/fontconfig/c05880de57d1f5e948fdfacc138775d9-le32d4.cache-4
+60972000-6097a000 r--s 00000000 08:05 135429     /var/cache/fontconfig/945677eb7aeaf62f1d50efc3fb3ec7d8-le32d4.cache-4
+6097a000-6097c000 r--s 00000000 08:05 156449     /var/cache/fontconfig/99e8ed0e538f840c565b6ed5dad60d56-le32d4.cache-4
+6097c000-60982000 r--s 00000000 08:05 137843     /var/cache/fontconfig/a6d8cf8e4ec09cdbc8633c31745a07dd-le32d4.cache-4
+60982000-60986000 r--s 00000000 08:05 138457     /var/cache/fontconfig/2cd17615ca594fa2959ae173292e504c-le32d4.cache-4
+60986000-60987000 r--s 00000000 08:05 147471     /var/cache/fontconfig/e7071f4a29fa870f4323321c154eba04-le32d4.cache-4
+60987000-6098c000 r--s 00000000 08:05 147469     /var/cache/fontconfig/6eb3985aa4124903f6ff08ba781cd364-le32d4.cache-4
+6098c000-6098d000 r--s 00000000 08:05 147424     /var/cache/fontconfig/0d8c3b2ac0904cb8a57a757ad11a4a08-le32d4.cache-4
+6098d000-60992000 r--s 00000000 08:05 147423     /var/cache/fontconfig/a755afe4a08bf5b97852ceb7400b47bc-le32d4.cache-4
+60992000-6099b000 r--s 00000000 08:05 138251     /var/cache/fontconfig/6d41288fd70b0be22e8c3a91e032eec0-le32d4.cache-4
+6099b000-609aa000 r--s 00000000 08:05 145371     /var/cache/fontconfig/04aabc0a78ac019cf9454389977116d2-le32d4.cache-4
+609aa000-609ab000 r--s 00000000 08:05 156447     /var/cache/fontconfig/1ac9eb803944fde146138c791f5cc56a-le32d4.cache-4
+609ab000-609ae000 r--s 00000000 08:05 138153     /var/cache/fontconfig/385c0604a188198f04d133e54aba7fe7-le32d4.cache-4
+609ae000-609af000 r--s 00000000 08:05 156446     /var/cache/fontconfig/dc05db6664285cc2f12bf69c139ae4c3-le32d4.cache-4
+609af000-609b1000 r--s 00000000 08:05 156445     /var/cache/fontconfig/767a8244fc0220cfb567a839d0392e0b-le32d4.cache-4
+609b1000-609b5000 r--s 00000000 08:05 138150     /var/cache/fontconfig/8801497958630a81b71ace7c5f9b32a8-le32d4.cache-4
+609b5000-609e4000 r--s 00000000 08:05 131322     /var/cache/fontconfig/365b55f210c0a22e9a19e35191240f32-le32d4.cache-4
+609e4000-609e7000 r--s 00000000 08:05 135047     /var/cache/fontconfig/c57959a16110560c8d0fcea73374aeeb-le32d4.cache-4
+609e7000-609ec000 r--s 00000000 08:05 145344     /var/cache/fontconfig/3047814df9a2f067bd2d96a2b9c36e5a-le32d4.cache-4
+609ec000-609f0000 r--s 00000000 08:05 137797     /var/cache/fontconfig/b47c4e1ecd0709278f4910c18777a504-le32d4.cache-4
+609f0000-609f7000 r--s 00000000 08:05 138043     /var/cache/fontconfig/52f7bdb7ce746bfd7eaa1985bd9cfa93-le32d4.cache-4
+609f7000-609fa000 r--s 00000000 08:05 138007     /var/cache/fontconfig/e49e89034d371f0f9de17aab02136486-le32d4.cache-4
+609fa000-60a0a000 r--s 00000000 08:05 137778     /var/cache/fontconfig/d52a8644073d54c13679302ca1180695-le32d4.cache-4
+60a0a000-60a11000 r--s 00000000 08:05 147025     /var/cache/fontconfig/3f7329c5293ffd510edef78f73874cfd-le32d4.cache-4
+60a11000-60a29000 r--s 00000000 08:05 131601     /var/cache/fontconfig/e13b20fdb08344e0e664864cc2ede53d-le32d4.cache-4
+60a29000-60b29000 rw-p 00000000 00:00 0 
+60b29000-60c29000 rw-p 00000000 00:00 0 
+60c29000-60c2c000 ---p 00000000 00:00 0 
+60c2c000-60c7a000 rwxp 00000000 00:00 0 
+60c7a000-60c83000 r-xp 00000000 08:05 917820     /usr/lib/i386-linux-gnu/libXcursor.so.1.0.2
+60c83000-60c84000 r--p 00008000 08:05 917820     /usr/lib/i386-linux-gnu/libXcursor.so.1.0.2
+60c84000-60c85000 rw-p 00009000 08:05 917820     /usr/lib/i386-linux-gnu/libXcursor.so.1.0.2
+60c85000-60c8e000 r--s 00000000 08:05 137727     /var/cache/fontconfig/d589a48862398ed80a3d6066f4f56f4c-le32d4.cache-4
+60c8e000-60c97000 r--s 00000000 08:05 142043     /var/cache/fontconfig/83bf95040141907cd45bb53cf7c1c148-le32d4.cache-4
+60c97000-60ca1000 r--s 00000000 08:05 142255     /var/cache/fontconfig/8f02d4cb045bd6ce15663e43f347c9f8-le32d4.cache-4
+60ca1000-60cb7000 r--s 00000000 08:05 142211     /var/cache/fontconfig/467c019e582ee353435ea5c21d137ef6-le32d4.cache-4
+60cb7000-60cba000 ---p 00000000 00:00 0 
+60cba000-60d08000 rwxp 00000000 00:00 0 
+60d08000-60d6a000 r-xp 00000000 08:05 2929521    /usr/lib/jvm/java-8-oracle/jre/lib/i386/libfontmanager.so
+60d6a000-60d6d000 rw-p 00061000 08:05 2929521    /usr/lib/jvm/java-8-oracle/jre/lib/i386/libfontmanager.so
+60d6d000-60db1000 rw-p 00000000 00:00 0 
+60db1000-60dfd000 r-xp 00000000 08:05 2929489    /usr/lib/jvm/java-8-oracle/jre/lib/i386/libawt_xawt.so
+60dfd000-60dff000 rw-p 0004c000 08:05 2929489    /usr/lib/jvm/java-8-oracle/jre/lib/i386/libawt_xawt.so
+60dff000-60e00000 rw-p 00000000 00:00 0 
+60e00000-60e74000 rw-p 00000000 00:00 0 
+60e74000-60f00000 ---p 00000000 00:00 0 
+60f00000-60f04000 r-xp 00000000 08:05 917987     /usr/lib/i386-linux-gnu/libXfixes.so.3.1.0
+60f04000-60f05000 r--p 00003000 08:05 917987     /usr/lib/i386-linux-gnu/libXfixes.so.3.1.0
+60f05000-60f06000 rw-p 00004000 08:05 917987     /usr/lib/i386-linux-gnu/libXfixes.so.3.1.0
+60f06000-60f14000 r-xp 00000000 08:05 920608     /usr/lib/i386-linux-gnu/libXi.so.6.1.0
+60f14000-60f15000 r--p 0000e000 08:05 920608     /usr/lib/i386-linux-gnu/libXi.so.6.1.0
+60f15000-60f16000 rw-p 0000f000 08:05 920608     /usr/lib/i386-linux-gnu/libXi.so.6.1.0
+60f16000-60f9c000 r-xp 00000000 08:05 2929495    /usr/lib/jvm/java-8-oracle/jre/lib/i386/libawt.so
+60f9c000-60fa3000 rw-p 00086000 08:05 2929495    /usr/lib/jvm/java-8-oracle/jre/lib/i386/libawt.so
+60fa3000-60fc7000 rw-p 00000000 00:00 0 
+60fc7000-61032000 r-xp 00000000 08:05 2508460    /usr/lib/pyshared/python2.7/matplotlib/backends/_backend_agg.so
+61032000-61033000 ---p 0006b000 08:05 2508460    /usr/lib/pyshared/python2.7/matplotlib/backends/_backend_agg.so
+61033000-61034000 r--p 0006b000 08:05 2508460    /usr/lib/pyshared/python2.7/matplotlib/backends/_backend_agg.so
+61034000-61035000 rw-p 0006c000 08:05 2508460    /usr/lib/pyshared/python2.7/matplotlib/backends/_backend_agg.so
+61035000-61036000 ---p 00000000 00:00 0 
+61036000-61836000 rwxp 00000000 00:00 0 
+61836000-6183b000 r-xp 00000000 08:05 918243     /usr/lib/i386-linux-gnu/libXdmcp.so.6.0.0
+6183b000-6183c000 r--p 00004000 08:05 918243     /usr/lib/i386-linux-gnu/libXdmcp.so.6.0.0
+6183c000-6183d000 rw-p 00005000 08:05 918243     /usr/lib/i386-linux-gnu/libXdmcp.so.6.0.0
+6183d000-6184e000 r-xp 00000000 08:05 918230     /usr/lib/i386-linux-gnu/libXext.so.6.4.0
+6184e000-6184f000 r--p 00010000 08:05 918230     /usr/lib/i386-linux-gnu/libXext.so.6.4.0
+6184f000-61850000 rw-p 00011000 08:05 918230     /usr/lib/i386-linux-gnu/libXext.so.6.4.0
+61850000-61870000 r-xp 00000000 08:05 922891     /usr/lib/i386-linux-gnu/libxcb.so.1.1.0
+61870000-61871000 r--p 0001f000 08:05 922891     /usr/lib/i386-linux-gnu/libxcb.so.1.1.0
+61871000-61872000 rw-p 00020000 08:05 922891     /usr/lib/i386-linux-gnu/libxcb.so.1.1.0
+61872000-61897000 r-xp 00000000 08:05 140199     /lib/i386-linux-gnu/libexpat.so.1.6.0
+61897000-61898000 ---p 00025000 08:05 140199     /lib/i386-linux-gnu/libexpat.so.1.6.0
+61898000-6189a000 r--p 00025000 08:05 140199     /lib/i386-linux-gnu/libexpat.so.1.6.0
+6189a000-6189b000 rw-p 00027000 08:05 140199     /lib/i386-linux-gnu/libexpat.so.1.6.0
+6189b000-619cb000 r-xp 00000000 08:05 917727     /usr/lib/i386-linux-gnu/libX11.so.6.3.0
+619cb000-619cc000 r--p 00130000 08:05 917727     /usr/lib/i386-linux-gnu/libX11.so.6.3.0
+619cc000-619ce000 rw-p 00131000 08:05 917727     /usr/lib/i386-linux-gnu/libX11.so.6.3.0
+619ce000-619cf000 rw-p 00000000 00:00 0 
+619cf000-61a08000 r-xp 00000000 08:05 947640     /usr/lib/i386-linux-gnu/libfontconfig.so.1.8.0
+61a08000-61a09000 r--p 00039000 08:05 947640     /usr/lib/i386-linux-gnu/libfontconfig.so.1.8.0
+61a09000-61a0a000 rw-p 0003a000 08:05 947640     /usr/lib/i386-linux-gnu/libfontconfig.so.1.8.0
+61a0a000-61a1e000 r-xp 00000000 08:05 920629     /usr/lib/i386-linux-gnu/libXft.so.2.3.1
+61a1e000-61a1f000 r--p 00013000 08:05 920629     /usr/lib/i386-linux-gnu/libXft.so.2.3.1
+61a1f000-61a20000 rw-p 00014000 08:05 920629     /usr/lib/i386-linux-gnu/libXft.so.2.3.1
+61a20000-61baa000 r-xp 00000000 08:05 919208     /usr/lib/i386-linux-gnu/libtcl8.6.so
+61baa000-61bb2000 r--p 00189000 08:05 919208     /usr/lib/i386-linux-gnu/libtcl8.6.so
+61bb2000-61bb3000 rw-p 00191000 08:05 919208     /usr/lib/i386-linux-gnu/libtcl8.6.so
+61bb3000-61bb4000 rw-p 00000000 00:00 0 
+61bb4000-61ce6000 r-xp 00000000 08:05 921286     /usr/lib/i386-linux-gnu/libtk8.6.so
+61ce6000-61cf2000 r--p 00131000 08:05 921286     /usr/lib/i386-linux-gnu/libtk8.6.so
+61cf2000-61cf7000 rw-p 0013d000 08:05 921286     /usr/lib/i386-linux-gnu/libtk8.6.so
+61cf7000-61d78000 rw-p 00000000 00:00 0 
+61d78000-61db8000 r-xp 00000000 08:05 2508454    /usr/lib/pyshared/python2.7/matplotlib/_tri.so
+61db8000-61dba000 r--p 0003f000 08:05 2508454    /usr/lib/pyshared/python2.7/matplotlib/_tri.so
+61dba000-61dbb000 rw-p 00041000 08:05 2508454    /usr/lib/pyshared/python2.7/matplotlib/_tri.so
+61dbb000-61ffc000 rw-p 00000000 00:00 0 
+61ffc000-62046000 r-xp 00000000 08:05 2508450    /usr/lib/pyshared/python2.7/matplotlib/_image.so
+62046000-62047000 ---p 0004a000 08:05 2508450    /usr/lib/pyshared/python2.7/matplotlib/_image.so
+62047000-62048000 r--p 0004a000 08:05 2508450    /usr/lib/pyshared/python2.7/matplotlib/_image.so
+62048000-6204a000 rw-p 0004b000 08:05 2508450    /usr/lib/pyshared/python2.7/matplotlib/_image.so
+6204a000-620ca000 rw-p 00000000 00:00 0 
+620ca000-620d4000 r-xp 00000000 08:05 923827     /usr/lib/i386-linux-gnu/libjbig.so.0
+620d4000-620d5000 ---p 0000a000 08:05 923827     /usr/lib/i386-linux-gnu/libjbig.so.0
+620d5000-620d6000 r--p 0000a000 08:05 923827     /usr/lib/i386-linux-gnu/libjbig.so.0
+620d6000-620d9000 rw-p 0000b000 08:05 923827     /usr/lib/i386-linux-gnu/libjbig.so.0
+620d9000-620fd000 r-xp 00000000 08:05 134671     /lib/i386-linux-gnu/liblzma.so.5.0.0
+620fd000-620fe000 r--p 00023000 08:05 134671     /lib/i386-linux-gnu/liblzma.so.5.0.0
+620fe000-620ff000 rw-p 00024000 08:05 134671     /lib/i386-linux-gnu/liblzma.so.5.0.0
+620ff000-6216e000 r-xp 00000000 08:05 918602     /usr/lib/i386-linux-gnu/libtiff.so.5.2.0
+6216e000-6216f000 ---p 0006f000 08:05 918602     /usr/lib/i386-linux-gnu/libtiff.so.5.2.0
+6216f000-62170000 r--p 0006f000 08:05 918602     /usr/lib/i386-linux-gnu/libtiff.so.5.2.0
+62170000-62172000 rw-p 00070000 08:05 918602     /usr/lib/i386-linux-gnu/libtiff.so.5.2.0
+62172000-62173000 rw-p 00000000 00:00 0 
+62173000-621bc000 r-xp 00000000 08:05 918166     /usr/lib/i386-linux-gnu/libjpeg.so.8.0.2
+621bc000-621bd000 r--p 00048000 08:05 918166     /usr/lib/i386-linux-gnu/libjpeg.so.8.0.2
+621bd000-621be000 rw-p 00049000 08:05 918166     /usr/lib/i386-linux-gnu/libjpeg.so.8.0.2
+621be000-621ce000 rw-p 00000000 00:00 0 
+621ce000-621cf000 r--s 00000000 08:05 142203     /var/cache/fontconfig/4794a0821666d79190d59a36cb4f44b5-le32d4.cache-4
+621cf000-621d4000 r-xp 00000000 08:05 925126     /usr/lib/i386-linux-gnu/libXtst.so.6.1.0
+621d4000-621d5000 r--p 00004000 08:05 925126     /usr/lib/i386-linux-gnu/libXtst.so.6.1.0
+621d5000-621d6000 rw-p 00005000 08:05 925126     /usr/lib/i386-linux-gnu/libXtst.so.6.1.0
+621d6000-621fe000 r-xp 00000000 08:05 2508461    /usr/lib/pyshared/python2.7/matplotlib/backends/_tkagg.so
+621fe000-621ff000 r--p 00028000 08:05 2508461    /usr/lib/pyshared/python2.7/matplotlib/backends/_tkagg.so
+621ff000-62200000 rw-p 00029000 08:05 2508461    /usr/lib/pyshared/python2.7/matplotlib/backends/_tkagg.so
+62200000-62245000 r-xp 00000000 08:05 1185018    /usr/lib/python2.7/dist-packages/PIL/_imaging.i386-linux-gnu.so
+62245000-62247000 r--p 00044000 08:05 1185018    /usr/lib/python2.7/dist-packages/PIL/_imaging.i386-linux-gnu.so
+62247000-62249000 rw-p 00046000 08:05 1185018    /usr/lib/python2.7/dist-packages/PIL/_imaging.i386-linux-gnu.so
+62249000-622c9000 rw-p 00000000 00:00 0 
+622c9000-622ef000 r-xp 00000000 08:05 141740     /lib/i386-linux-gnu/libpng12.so.0.50.0
+622ef000-622f0000 r--p 00025000 08:05 141740     /lib/i386-linux-gnu/libpng12.so.0.50.0
+622f0000-622f1000 rw-p 00026000 08:05 141740     /lib/i386-linux-gnu/libpng12.so.0.50.0
+622f1000-6238c000 r-xp 00000000 08:05 934124     /usr/lib/i386-linux-gnu/libfreetype.so.6.11.1
+6238c000-62390000 r--p 0009a000 08:05 934124     /usr/lib/i386-linux-gnu/libfreetype.so.6.11.1
+62390000-62391000 rw-p 0009e000 08:05 934124     /usr/lib/i386-linux-gnu/libfreetype.so.6.11.1
+62391000-623d7000 r-xp 00000000 08:05 2508462    /usr/lib/pyshared/python2.7/matplotlib/ft2font.so
+623d7000-623d9000 r--p 00045000 08:05 2508462    /usr/lib/pyshared/python2.7/matplotlib/ft2font.so
+623d9000-623db000 rw-p 00047000 08:05 2508462    /usr/lib/pyshared/python2.7/matplotlib/ft2font.so
+623db000-6241b000 rw-p 00000000 00:00 0 
+6241b000-6246d000 r-xp 00000000 08:05 135376     /lib/i386-linux-gnu/libssl.so.1.0.0
+6246d000-6246f000 r--p 00051000 08:05 135376     /lib/i386-linux-gnu/libssl.so.1.0.0
+6246f000-62473000 rw-p 00053000 08:05 135376     /lib/i386-linux-gnu/libssl.so.1.0.0
+62473000-625b3000 rw-p 00000000 00:00 0 
+625b3000-6268f000 r-xp 00000000 08:05 917961     /usr/lib/i386-linux-gnu/libstdc++.so.6.0.19
+6268f000-62693000 r--p 000dc000 08:05 917961     /usr/lib/i386-linux-gnu/libstdc++.so.6.0.19
+62693000-62694000 rw-p 000e0000 08:05 917961     /usr/lib/i386-linux-gnu/libstdc++.so.6.0.19
+62694000-6269b000 rw-p 00000000 00:00 0 
+6269b000-6269c000 r--s 00000000 08:05 145329     /var/cache/fontconfig/56cf4f4769d0f4abc89a4895d7bd3ae1-le32d4.cache-4
+6269c000-626a5000 r-xp 00000000 08:05 919335     /usr/lib/i386-linux-gnu/libXrender.so.1.3.0
+626a5000-626a6000 r--p 00008000 08:05 919335     /usr/lib/i386-linux-gnu/libXrender.so.1.3.0
+626a6000-626a7000 rw-p 00009000 08:05 919335     /usr/lib/i386-linux-gnu/libXrender.so.1.3.0
+626a7000-626cb000 r-xp 00000000 08:05 2508451    /usr/lib/pyshared/python2.7/matplotlib/_png.so
+626cb000-626cc000 r--p 00024000 08:05 2508451    /usr/lib/pyshared/python2.7/matplotlib/_png.so
+626cc000-626cd000 rw-p 00025000 08:05 2508451    /usr/lib/pyshared/python2.7/matplotlib/_png.so
+626cd000-62713000 r-xp 00000000 08:05 2508452    /usr/lib/pyshared/python2.7/matplotlib/_path.so
+62713000-62714000 ---p 00046000 08:05 2508452    /usr/lib/pyshared/python2.7/matplotlib/_path.so
+62714000-62715000 r--p 00046000 08:05 2508452    /usr/lib/pyshared/python2.7/matplotlib/_path.so
+62715000-62716000 rw-p 00047000 08:05 2508452    /usr/lib/pyshared/python2.7/matplotlib/_path.so
+62716000-62896000 rw-p 00000000 00:00 0 
+62896000-628b2000 r-xp 00000000 08:05 927179     /usr/lib/python2.7/lib-dynload/_ctypes.i386-linux-gnu.so
+628b2000-628b3000 r--p 0001b000 08:05 927179     /usr/lib/python2.7/lib-dynload/_ctypes.i386-linux-gnu.so
+628b3000-628b6000 rw-p 0001c000 08:05 927179     /usr/lib/python2.7/lib-dynload/_ctypes.i386-linux-gnu.so
+628b6000-628f6000 rw-p 00000000 00:00 0 
+628f6000-62949000 r-xp 00000000 08:05 528435     /usr/local/lib/python2.7/dist-packages/numpy/random/mtrand.so
+62949000-6294a000 r--p 00052000 08:05 528435     /usr/local/lib/python2.7/dist-packages/numpy/random/mtrand.so
+6294a000-62980000 rw-p 00053000 08:05 528435     /usr/local/lib/python2.7/dist-packages/numpy/random/mtrand.so
+62980000-629c1000 rw-p 00000000 00:00 0 
+629c1000-63098000 r-xp 00000000 08:05 923662     /usr/lib/atlas-base/atlas/libblas.so.3.0
+63098000-6309c000 rw-p 006d6000 08:05 923662     /usr/lib/atlas-base/atlas/libblas.so.3.0
+6309c000-630be000 r-xp 00000000 08:05 919078     /usr/lib/atlas-base/libf77blas.so.3.0
+630be000-630bf000 rw-p 00022000 08:05 919078     /usr/lib/atlas-base/libf77blas.so.3.0
+630bf000-63623000 r-xp 00000000 08:05 921209     /usr/lib/lapack/liblapack.so.3.0
+63623000-63624000 r--p 00563000 08:05 921209     /usr/lib/lapack/liblapack.so.3.0
+63624000-63627000 rw-p 00564000 08:05 921209     /usr/lib/lapack/liblapack.so.3.0
+63627000-63667000 rw-p 00000000 00:00 0 
+63667000-637fb000 r-xp 00000000 08:05 135373     /lib/i386-linux-gnu/libcrypto.so.1.0.0
+637fb000-6380a000 r--p 00194000 08:05 135373     /lib/i386-linux-gnu/libcrypto.so.1.0.0
+6380a000-63811000 rw-p 001a3000 08:05 135373     /lib/i386-linux-gnu/libcrypto.so.1.0.0
+63811000-63814000 rw-p 00000000 00:00 0 
+63814000-63816000 r--s 00000000 08:05 145320     /var/cache/fontconfig/4b14b093aebc79c320de5e86ae1d3314-le32d4.cache-4
+63816000-63819000 r--s 00000000 08:05 154531     /var/cache/fontconfig/7ef2298fde41cc6eeb7af42e48b7d293-le32d4.cache-4
+63819000-6381b000 r-xp 00000000 08:05 918951     /usr/lib/i386-linux-gnu/libXau.so.6.0.0
+6381b000-6381c000 r--p 00001000 08:05 918951     /usr/lib/i386-linux-gnu/libXau.so.6.0.0
+6381c000-6381d000 rw-p 00002000 08:05 918951     /usr/lib/i386-linux-gnu/libXau.so.6.0.0
+6381d000-63824000 r-xp 00000000 08:05 927183     /usr/lib/python2.7/lib-dynload/_ssl.i386-linux-gnu.so
+63824000-63825000 r--p 00006000 08:05 927183     /usr/lib/python2.7/lib-dynload/_ssl.i386-linux-gnu.so
+63825000-63826000 rw-p 00007000 08:05 927183     /usr/lib/python2.7/lib-dynload/_ssl.i386-linux-gnu.so
+63826000-63844000 r-xp 00000000 08:05 528440     /usr/local/lib/python2.7/dist-packages/numpy/linalg/_umath_linalg.so
+63844000-63845000 r--p 0001d000 08:05 528440     /usr/local/lib/python2.7/dist-packages/numpy/linalg/_umath_linalg.so
+63845000-63846000 rw-p 0001e000 08:05 528440     /usr/local/lib/python2.7/dist-packages/numpy/linalg/_umath_linalg.so
+63846000-63906000 rw-p 00000000 00:00 0 
+63906000-6397f000 r-xp 00000000 08:05 919514     /usr/lib/i386-linux-gnu/libquadmath.so.0.0.0
+6397f000-63980000 r--p 00078000 08:05 919514     /usr/lib/i386-linux-gnu/libquadmath.so.0.0.0
+63980000-63981000 rw-p 00079000 08:05 919514     /usr/lib/i386-linux-gnu/libquadmath.so.0.0.0
+63981000-63a7d000 r-xp 00000000 08:05 919512     /usr/lib/i386-linux-gnu/libgfortran.so.3.0.0
+63a7d000-63a7e000 r--p 000fb000 08:05 919512     /usr/lib/i386-linux-gnu/libgfortran.so.3.0.0
+63a7e000-63a7f000 rw-p 000fc000 08:05 919512     /usr/lib/i386-linux-gnu/libgfortran.so.3.0.0
+63a7f000-64117000 r-xp 00000000 08:05 922266     /usr/lib/atlas-base/libatlas.so.3.0
+64117000-6411a000 rw-p 00698000 08:05 922266     /usr/lib/atlas-base/libatlas.so.3.0
+6411a000-6411c000 r-xp 00000000 08:05 921282     /usr/lib/i386-linux-gnu/libXss.so.1.0.0
+6411c000-6411d000 r--p 00001000 08:05 921282     /usr/lib/i386-linux-gnu/libXss.so.1.0.0
+6411d000-6411e000 rw-p 00002000 08:05 921282     /usr/lib/i386-linux-gnu/libXss.so.1.0.0
+6411e000-64129000 r-xp 00000000 08:05 921290     /usr/lib/python2.7/lib-dynload/_tkinter.so
+64129000-6412a000 r--p 0000a000 08:05 921290     /usr/lib/python2.7/lib-dynload/_tkinter.so
+6412a000-6412b000 rw-p 0000b000 08:05 921290     /usr/lib/python2.7/lib-dynload/_tkinter.so
+6412b000-64139000 r-xp 00000000 08:05 2508453    /usr/lib/pyshared/python2.7/matplotlib/_delaunay.so
+64139000-6413a000 r--p 0000d000 08:05 2508453    /usr/lib/pyshared/python2.7/matplotlib/_delaunay.so
+6413a000-6413b000 rw-p 0000e000 08:05 2508453    /usr/lib/pyshared/python2.7/matplotlib/_delaunay.so
+6413b000-6417b000 rw-p 00000000 00:00 0 
+6417b000-641de000 r-xp 00000000 08:05 528385     /usr/local/lib/python2.7/dist-packages/numpy/core/umath.so
+641de000-641df000 r--p 00062000 08:05 528385     /usr/local/lib/python2.7/dist-packages/numpy/core/umath.so
+641df000-641e2000 rw-p 00063000 08:05 528385     /usr/local/lib/python2.7/dist-packages/numpy/core/umath.so
+641e2000-641e4000 rw-p 00000000 00:00 0 
+641e4000-64348000 r-xp 00000000 08:05 528377     /usr/local/lib/python2.7/dist-packages/numpy/core/multiarray.so
+64348000-64349000 ---p 00164000 08:05 528377     /usr/local/lib/python2.7/dist-packages/numpy/core/multiarray.so
+64349000-6434a000 r--p 00164000 08:05 528377     /usr/local/lib/python2.7/dist-packages/numpy/core/multiarray.so
+6434a000-64351000 rw-p 00165000 08:05 528377     /usr/local/lib/python2.7/dist-packages/numpy/core/multiarray.so
+64351000-6435a000 rw-p 00000000 00:00 0 
+6435a000-6435b000 ---p 00000000 00:00 0 
+6435b000-6442c000 rwxp 00000000 00:00 0 
+6442c000-6442d000 ---p 00000000 00:00 0 
+6442d000-644ad000 rwxp 00000000 00:00 0 
+644ad000-644ae000 ---p 00000000 00:00 0 
+644ae000-6452e000 rwxp 00000000 00:00 0 
+6452e000-6452f000 ---p 00000000 00:00 0 
+6452f000-64600000 rwxp 00000000 00:00 0 
+64600000-646a5000 rw-p 00000000 00:00 0 
+646a5000-64700000 ---p 00000000 00:00 0 
+64700000-64800000 rw-p 00000000 00:00 0 
+64800000-648ff000 rw-p 00000000 00:00 0 
+648ff000-64900000 ---p 00000000 00:00 0 
+64900000-64901000 r--s 00000000 08:05 137809     /var/cache/fontconfig/b9d506c9ac06c20b433354fa67a72993-le32d4.cache-4
+64901000-64906000 r-xp 00000000 08:05 2508463    /usr/lib/pyshared/python2.7/matplotlib/_cntr.so
+64906000-64907000 r--p 00004000 08:05 2508463    /usr/lib/pyshared/python2.7/matplotlib/_cntr.so
+64907000-64908000 rw-p 00005000 08:05 2508463    /usr/lib/pyshared/python2.7/matplotlib/_cntr.so
+64908000-64948000 rw-p 00000000 00:00 0 
+64948000-649ea000 rwxp 00000000 00:00 0 
+649ea000-649eb000 ---p 00000000 00:00 0 
+649eb000-64a6b000 rwxp 00000000 00:00 0 
+64a6b000-64c44000 r--s 03d1f000 08:05 2929546    /usr/lib/jvm/java-8-oracle/jre/lib/rt.jar
+64c44000-6508a000 rw-p 00000000 00:00 0 
+6508a000-65090000 ---p 00000000 00:00 0 
+65090000-67400000 rw-p 00000000 00:00 0 
+67400000-67421000 rw-p 00000000 00:00 0 
+67421000-67500000 ---p 00000000 00:00 0 
+67500000-67501000 r--s 00000000 08:05 137773     /var/cache/fontconfig/0c9eb80ebd1c36541ebe2852d3bb0c49-le32d4.cache-4
+67501000-67506000 r-xp 00000000 08:05 927197     /usr/lib/python2.7/lib-dynload/_csv.i386-linux-gnu.so
+67506000-67507000 r--p 00004000 08:05 927197     /usr/lib/python2.7/lib-dynload/_csv.i386-linux-gnu.so
+67507000-67509000 rw-p 00005000 08:05 927197     /usr/lib/python2.7/lib-dynload/_csv.i386-linux-gnu.so
+67509000-67511000 r-xp 00000000 08:05 528447     /usr/local/lib/python2.7/dist-packages/numpy/fft/fftpack_lite.so
+67511000-67512000 r--p 00007000 08:05 528447     /usr/local/lib/python2.7/dist-packages/numpy/fft/fftpack_lite.so
+67512000-67513000 rw-p 00008000 08:05 528447     /usr/local/lib/python2.7/dist-packages/numpy/fft/fftpack_lite.so
+67513000-6752f000 r-xp 00000000 08:05 137149     /lib/i386-linux-gnu/libgcc_s.so.1
+6752f000-67530000 rw-p 0001b000 08:05 137149     /lib/i386-linux-gnu/libgcc_s.so.1
+67530000-6757f000 rw-p 00000000 00:00 0 
+6757f000-67580000 ---p 00000000 00:00 0 
+67580000-67600000 rwxp 00000000 00:00 0 
+67600000-67621000 rw-p 00000000 00:00 0 
+67621000-67700000 ---p 00000000 00:00 0 
+67700000-67721000 rw-p 00000000 00:00 0 
+67721000-67800000 ---p 00000000 00:00 0 
+67800000-67823000 r-xp 00000000 08:05 923664     /usr/lib/atlas-base/libcblas.so.3.0
+67823000-67824000 rw-p 00022000 08:05 923664     /usr/lib/atlas-base/libcblas.so.3.0
+67824000-6787f000 rw-p 00000000 00:00 0 
+6787f000-67880000 ---p 00000000 00:00 0 
+67880000-67900000 rwxp 00000000 00:00 0 
+67900000-67921000 rw-p 00000000 00:00 0 
+67921000-67a00000 ---p 00000000 00:00 0 
+67a00000-67a01000 r--s 00000000 08:05 142308     /var/cache/fontconfig/16326683038b281783a0ef8c680e3a10-le32d4.cache-4
+67a01000-67a06000 r-xp 00000000 08:05 921283     /usr/lib/i386-linux-gnu/libffi.so.6.0.1
+67a06000-67a07000 r--p 00005000 08:05 921283     /usr/lib/i386-linux-gnu/libffi.so.6.0.1
+67a07000-67a08000 rw-p 00006000 08:05 921283     /usr/lib/i386-linux-gnu/libffi.so.6.0.1
+67a08000-67a34000 r-xp 00000000 08:05 528376     /usr/local/lib/python2.7/dist-packages/numpy/core/scalarmath.so
+67a34000-67a35000 r--p 0002b000 08:05 528376     /usr/local/lib/python2.7/dist-packages/numpy/core/scalarmath.so
+67a35000-67a36000 rw-p 0002c000 08:05 528376     /usr/local/lib/python2.7/dist-packages/numpy/core/scalarmath.so
+67a36000-67a37000 ---p 00000000 00:00 0 
+67a37000-67ab7000 rwxp 00000000 00:00 0 
+67ab7000-67acd000 rw-p 00000000 00:00 0 
+67acd000-67c07000 ---p 00000000 00:00 0 
+67c07000-67c1d000 rw-p 00000000 00:00 0 
+67c1d000-67d57000 ---p 00000000 00:00 0 
+67d57000-67d62000 rw-p 00000000 00:00 0 
+67d62000-67dff000 ---p 00000000 00:00 0 
+67dff000-6a8c0000 rw-p 00000000 00:00 0 
+6a8c0000-91e00000 ---p 00000000 00:00 0 
+91e00000-93340000 rw-p 00000000 00:00 0 
+93340000-a6e00000 ---p 00000000 00:00 0 
+a6e00000-a6e01000 r--s 00000000 08:05 142212     /var/cache/fontconfig/e0aa53bcfa504e64f87823c16bc01eb6-le32d4.cache-4
+a6e01000-a6e02000 rwxp 00000000 00:00 0 
+a6e02000-a6e05000 r-xp 00000000 08:05 528444     /usr/local/lib/python2.7/dist-packages/numpy/linalg/lapack_lite.so
+a6e05000-a6e06000 r--p 00002000 08:05 528444     /usr/local/lib/python2.7/dist-packages/numpy/linalg/lapack_lite.so
+a6e06000-a6e07000 rw-p 00003000 08:05 528444     /usr/local/lib/python2.7/dist-packages/numpy/linalg/lapack_lite.so
+a6e07000-a6e0d000 r-xp 00000000 08:05 528409     /usr/local/lib/python2.7/dist-packages/numpy/lib/_compiled_base.so
+a6e0d000-a6e0e000 r--p 00005000 08:05 528409     /usr/local/lib/python2.7/dist-packages/numpy/lib/_compiled_base.so
+a6e0e000-a6e0f000 rw-p 00006000 08:05 528409     /usr/local/lib/python2.7/dist-packages/numpy/lib/_compiled_base.so
+a6e0f000-a6e12000 r-xp 00000000 08:05 927180     /usr/lib/python2.7/lib-dynload/_hashlib.i386-linux-gnu.so
+a6e12000-a6e13000 r--p 00002000 08:05 927180     /usr/lib/python2.7/lib-dynload/_hashlib.i386-linux-gnu.so
+a6e13000-a6e14000 rw-p 00003000 08:05 927180     /usr/lib/python2.7/lib-dynload/_hashlib.i386-linux-gnu.so
+a6e14000-a6e1a000 r-xp 00000000 08:05 528401     /usr/local/lib/python2.7/dist-packages/numpy/core/_dotblas.so
+a6e1a000-a6e1b000 r--p 00005000 08:05 528401     /usr/local/lib/python2.7/dist-packages/numpy/core/_dotblas.so
+a6e1b000-a6e1c000 rw-p 00006000 08:05 528401     /usr/local/lib/python2.7/dist-packages/numpy/core/_dotblas.so
+a6e1c000-a6e32000 r-xp 00000000 08:05 927177     /usr/lib/python2.7/lib-dynload/datetime.i386-linux-gnu.so
+a6e32000-a6e33000 r--p 00015000 08:05 927177     /usr/lib/python2.7/lib-dynload/datetime.i386-linux-gnu.so
+a6e33000-a6e36000 rw-p 00016000 08:05 927177     /usr/lib/python2.7/lib-dynload/datetime.i386-linux-gnu.so
+a6e36000-a6e37000 ---p 00000000 00:00 0 
+a6e37000-a6eb7000 rwxp 00000000 00:00 0 
+a6eb7000-a6ec0000 rw-p 00000000 00:00 0 
+a6ec0000-a7277000 ---p 00000000 00:00 0 
+a7277000-a74b7000 rwxp 00000000 00:00 0 
+a74b7000-b6277000 ---p 00000000 00:00 0 
+b6277000-b6281000 r-xp 00000000 08:05 137821     /lib/i386-linux-gnu/libnss_files-2.19.so
+b6281000-b6282000 r--p 00009000 08:05 137821     /lib/i386-linux-gnu/libnss_files-2.19.so
+b6282000-b6283000 rw-p 0000a000 08:05 137821     /lib/i386-linux-gnu/libnss_files-2.19.so
+b6283000-b628d000 r-xp 00000000 08:05 136773     /lib/i386-linux-gnu/libnss_nis-2.19.so
+b628d000-b628e000 r--p 00009000 08:05 136773     /lib/i386-linux-gnu/libnss_nis-2.19.so
+b628e000-b628f000 rw-p 0000a000 08:05 136773     /lib/i386-linux-gnu/libnss_nis-2.19.so
+b628f000-b62a4000 r-xp 00000000 08:05 136280     /lib/i386-linux-gnu/libnsl-2.19.so
+b62a4000-b62a5000 r--p 00015000 08:05 136280     /lib/i386-linux-gnu/libnsl-2.19.so
+b62a5000-b62a6000 rw-p 00016000 08:05 136280     /lib/i386-linux-gnu/libnsl-2.19.so
+b62a6000-b62c0000 rw-p 00000000 00:00 0 
+b62c0000-b62d9000 r-xp 00000000 08:05 2929540    /usr/lib/jvm/java-8-oracle/jre/lib/i386/libzip.so
+b62d9000-b62da000 rw-p 00019000 08:05 2929540    /usr/lib/jvm/java-8-oracle/jre/lib/i386/libzip.so
+b62da000-b62fe000 r-xp 00000000 08:05 2929526    /usr/lib/jvm/java-8-oracle/jre/lib/i386/libjava.so
+b62fe000-b62ff000 rw-p 00023000 08:05 2929526    /usr/lib/jvm/java-8-oracle/jre/lib/i386/libjava.so
+b62ff000-b633f000 rw-p 00000000 00:00 0 
+b633f000-b6cc2000 r-xp 00000000 08:05 2929518    /usr/lib/jvm/java-8-oracle/jre/lib/i386/server/libjvm.so
+b6cc2000-b6d2f000 rw-p 00983000 08:05 2929518    /usr/lib/jvm/java-8-oracle/jre/lib/i386/server/libjvm.so
+b6d2f000-b7157000 rw-p 00000000 00:00 0 
+b7157000-b71b5000 r-xp 00000000 08:05 2503032    /usr/local/lib/python2.7/dist-packages/jnius/jnius.so
+b71b5000-b71b6000 r--p 0005d000 08:05 2503032    /usr/local/lib/python2.7/dist-packages/jnius/jnius.so
+b71b6000-b71bb000 rw-p 0005e000 08:05 2503032    /usr/local/lib/python2.7/dist-packages/jnius/jnius.so
+b71bb000-b71bc000 rw-p 00000000 00:00 0 
+b71bc000-b73bc000 r--p 00000000 08:05 918382     /usr/lib/locale/locale-archive
+b73bc000-b74be000 rw-p 00000000 00:00 0 
+b74be000-b7502000 r-xp 00000000 08:05 135289     /lib/i386-linux-gnu/libm-2.19.so
+b7502000-b7503000 r--p 00043000 08:05 135289     /lib/i386-linux-gnu/libm-2.19.so
+b7503000-b7504000 rw-p 00044000 08:05 135289     /lib/i386-linux-gnu/libm-2.19.so
+b7504000-b751c000 r-xp 00000000 08:05 136304     /lib/i386-linux-gnu/libz.so.1.2.8
+b751c000-b751d000 r--p 00017000 08:05 136304     /lib/i386-linux-gnu/libz.so.1.2.8
+b751d000-b751e000 rw-p 00018000 08:05 136304     /lib/i386-linux-gnu/libz.so.1.2.8
+b751e000-b7520000 r-xp 00000000 08:05 137674     /lib/i386-linux-gnu/libutil-2.19.so
+b7520000-b7521000 r--p 00001000 08:05 137674     /lib/i386-linux-gnu/libutil-2.19.so
+b7521000-b7522000 rw-p 00002000 08:05 137674     /lib/i386-linux-gnu/libutil-2.19.so
+b7522000-b7525000 r-xp 00000000 08:05 135578     /lib/i386-linux-gnu/libdl-2.19.so
+b7525000-b7526000 r--p 00002000 08:05 135578     /lib/i386-linux-gnu/libdl-2.19.so
+b7526000-b7527000 rw-p 00003000 08:05 135578     /lib/i386-linux-gnu/libdl-2.19.so
+b7527000-b76cf000 r-xp 00000000 08:05 137448     /lib/i386-linux-gnu/libc-2.19.so
+b76cf000-b76d0000 ---p 001a8000 08:05 137448     /lib/i386-linux-gnu/libc-2.19.so
+b76d0000-b76d2000 r--p 001a8000 08:05 137448     /lib/i386-linux-gnu/libc-2.19.so
+b76d2000-b76d3000 rw-p 001aa000 08:05 137448     /lib/i386-linux-gnu/libc-2.19.so
+b76d3000-b76d7000 rw-p 00000000 00:00 0 
+b76d7000-b76ef000 r-xp 00000000 08:05 136438     /lib/i386-linux-gnu/libpthread-2.19.so
+b76ef000-b76f0000 r--p 00018000 08:05 136438     /lib/i386-linux-gnu/libpthread-2.19.so
+b76f0000-b76f1000 rw-p 00019000 08:05 136438     /lib/i386-linux-gnu/libpthread-2.19.so
+b76f1000-b76f3000 rw-p 00000000 00:00 0 
+b76f3000-b76f4000 r-xp 00000000 08:05 927206     /usr/lib/python2.7/lib-dynload/future_builtins.i386-linux-gnu.so
+b76f4000-b76f5000 r--p 00000000 08:05 927206     /usr/lib/python2.7/lib-dynload/future_builtins.i386-linux-gnu.so
+b76f5000-b76f6000 rw-p 00001000 08:05 927206     /usr/lib/python2.7/lib-dynload/future_builtins.i386-linux-gnu.so
+b76f6000-b76fe000 rw-s 00000000 08:05 262689     /tmp/hsperfdata_mrfish/9928
+b76fe000-b7705000 r-xp 00000000 08:05 136214     /lib/i386-linux-gnu/libnss_compat-2.19.so
+b7705000-b7706000 r--p 00006000 08:05 136214     /lib/i386-linux-gnu/libnss_compat-2.19.so
+b7706000-b7707000 rw-p 00007000 08:05 136214     /lib/i386-linux-gnu/libnss_compat-2.19.so
+b7707000-b7708000 rw-p 00000000 00:00 0 
+b7708000-b7709000 r--p 00000000 00:00 0 
+b7709000-b7714000 r-xp 00000000 08:05 2929536    /usr/lib/jvm/java-8-oracle/jre/lib/i386/libverify.so
+b7714000-b7715000 rw-p 0000b000 08:05 2929536    /usr/lib/jvm/java-8-oracle/jre/lib/i386/libverify.so
+b7715000-b771c000 r-xp 00000000 08:05 137092     /lib/i386-linux-gnu/librt-2.19.so
+b771c000-b771d000 r--p 00006000 08:05 137092     /lib/i386-linux-gnu/librt-2.19.so
+b771d000-b771e000 rw-p 00007000 08:05 137092     /lib/i386-linux-gnu/librt-2.19.so
+b771e000-b771f000 r--p 002c5000 08:05 918382     /usr/lib/locale/locale-archive
+b771f000-b7722000 r-xp 00000000 08:05 927190     /usr/lib/python2.7/lib-dynload/termios.i386-linux-gnu.so
+b7722000-b7723000 r--p 00002000 08:05 927190     /usr/lib/python2.7/lib-dynload/termios.i386-linux-gnu.so
+b7723000-b7725000 rw-p 00003000 08:05 927190     /usr/lib/python2.7/lib-dynload/termios.i386-linux-gnu.so
+b7725000-b7727000 rw-p 00000000 00:00 0 
+b7727000-b7729000 r--p 00000000 00:00 0          [vvar]
+b7729000-b772b000 r-xp 00000000 00:00 0          [vdso]
+b772b000-b774b000 r-xp 00000000 08:05 136690     /lib/i386-linux-gnu/ld-2.19.so
+b774b000-b774c000 r--p 0001f000 08:05 136690     /lib/i386-linux-gnu/ld-2.19.so
+b774c000-b774d000 rw-p 00020000 08:05 136690     /lib/i386-linux-gnu/ld-2.19.so
+bff54000-bff55000 rwxp 00000000 00:00 0 
+bff58000-bff5b000 ---p 00000000 00:00 0 
+bff5c000-bffa6000 rwxp 00000000 00:00 0          [stack]
+bffa6000-bffa8000 rw-p 00000000 00:00 0 
+
+VM Arguments:
+java_command: <unknown>
+java_class_path (initial): /home/mrfish/Dropbox/Workspace/EnvironmentServer/branches/bin
+Launcher Type: generic
+
+Environment Variables:
+JAVA_HOME=/usr/lib/jvm/java-8-oracle
+CLASSPATH=/home/mrfish/Dropbox/Workspace/EnvironmentServer/branches/bin
+PATH=/home/mrfish/MrFish/RoboticsLab/gcc-arm-none-eabi-4_8-2014q3/bin:/opt/ros/indigo/bin:/usr/lib/ccache:/home/mrfish/sbt/bin:/usr/local/cuda/bin:/usr/lib/ccache:/home/mrfish/sbt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/mrfish/MrFish/RoboticsLab/jsbsim/src:/home/mrfish/MrFish/RoboticsLab/ardupilot/Tools/autotest:/home/mrfish/MrFish/RoboticsLab/jsbsim/src:/home/mrfish/MrFish/RoboticsLab/ardupilot/Tools/autotest
+LD_LIBRARY_PATH=/usr/lib/jvm/java-8-oracle/jre/lib/i386/client:/usr/lib/jvm/java-8-oracle/jre/lib/i386:/home/mrfish/MrFish/RoboticsLab/Workspace/catkin_ws/devel/lib:/opt/ros/indigo/lib:/usr/local/cuda/lib
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x8d0a60], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0x8d0a60], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x7503b0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: SIG_IGN, sa_mask[0]=00000000000010000000000000000000, sa_flags=SA_RESTART
+SIGXFSZ: [libjvm.so+0x7503b0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x7503b0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x751a30], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x752ee0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: [libjvm.so+0x752ee0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.so+0x752ee0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x752ee0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=14.04
+DISTRIB_CODENAME=trusty
+DISTRIB_DESCRIPTION="Ubuntu 14.04.4 LTS"
+
+uname:Linux 4.4.0-28-generic #47~14.04.1-Ubuntu SMP Fri Jun 24 16:31:42 UTC 2016 i686
+libc:glibc 2.19 NPTL 2.19 
+rlimit: STACK 8192k, CORE 0k, NPROC 32084, NOFILE 4096, AS infinity
+load average:1.75 1.47 1.27
+
+/proc/meminfo:
+MemTotal:        4127984 kB
+MemFree:          183196 kB
+MemAvailable:          0 kB
+Buffers:            1732 kB
+Cached:           104500 kB
+SwapCached:            0 kB
+Active:          3719908 kB
+Inactive:          76860 kB
+Active(anon):    3691696 kB
+Inactive(anon):    56876 kB
+Active(file):      28212 kB
+Inactive(file):    19984 kB
+Unevictable:          32 kB
+Mlocked:              32 kB
+HighTotal:       3269596 kB
+HighFree:           7692 kB
+LowTotal:         858388 kB
+LowFree:          175504 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:               296 kB
+Writeback:             0 kB
+AnonPages:       3690992 kB
+Mapped:            95256 kB
+Shmem:             57612 kB
+Slab:              64060 kB
+SReclaimable:      37092 kB
+SUnreclaim:        26968 kB
+KernelStack:        6216 kB
+PageTables:        18960 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     2063992 kB
+Committed_AS:    8475884 kB
+VmallocTotal:     122880 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+AnonHugePages:   1572864 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       18424 kB
+DirectMap2M:      894976 kB
+
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 37 stepping 5, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, ht, tsc, tscinvbit
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 37
+model name	: Intel(R) Core(TM) i3 CPU       M 370  @ 2.40GHz
+stepping	: 5
+microcode	: 0x2
+cpu MHz		: 2399.000
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 popcnt lahf_lm tpr_shadow vnmi flexpriority ept vpid dtherm arat
+bugs		:
+bogomips	: 4787.73
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 37
+model name	: Intel(R) Core(TM) i3 CPU       M 370  @ 2.40GHz
+stepping	: 5
+microcode	: 0x2
+cpu MHz		: 2399.000
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 2
+cpu cores	: 2
+apicid		: 4
+initial apicid	: 4
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 popcnt lahf_lm tpr_shadow vnmi flexpriority ept vpid dtherm arat
+bugs		:
+bogomips	: 4787.73
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 37
+model name	: Intel(R) Core(TM) i3 CPU       M 370  @ 2.40GHz
+stepping	: 5
+microcode	: 0x2
+cpu MHz		: 2399.000
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 popcnt lahf_lm tpr_shadow vnmi flexpriority ept vpid dtherm arat
+bugs		:
+bogomips	: 4787.73
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 37
+model name	: Intel(R) Core(TM) i3 CPU       M 370  @ 2.40GHz
+stepping	: 5
+microcode	: 0x2
+cpu MHz		: 2399.000
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 2
+cpu cores	: 2
+apicid		: 5
+initial apicid	: 5
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 popcnt lahf_lm tpr_shadow vnmi flexpriority ept vpid dtherm arat
+bugs		:
+bogomips	: 4787.73
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 4127984k(184304k free), swap 0k(0k free)
+
+vm_info: Java HotSpot(TM) Server VM (25.91-b14) for linux-x86 JRE (1.8.0_91-b14), built on Apr  1 2016 01:01:13 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Fri Jul  8 23:29:40 2016
+elapsed time: 330 seconds (0d 0h 5m 30s)
+
